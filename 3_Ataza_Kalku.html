@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kalkulagailua</title>
+    </head>
+    <style>
+	.caja {
+		position: relative;
+		height: 550px;
+		width: 500px;
+		font-family: sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		color: #ffffff;
+		background: #889ccf;
+		margin: 2rem auto;
+		overflow: hidden;
+		padding: 2px;
+		border-radius: 35px 0px 35px 0px;
+		-moz-border-radius: 35px 0px 35px 0px;
+		-webkit-border-radius: 35px 0px 35px 0px;
+		border: 2px solid #5878ca;
+		text-align: center;
+	}
+	</style>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.1.2/math.js"></script>
+
+
+	<script>
+    var kalkulatu = function(){
+			
+            var eragiketa = Number(eval($("#erag").val()));
+			
+			var emaitza = Number($("#emaitza").val());
+			var ondo = $("#ondo");
+
+			if(math.equal(eragiketa,emaitza)){
+				ondo.html("Ondo dago!!");
+				ondo.css('color','green');
+			}
+			else{
+				ondo.html("Agian bueltatxo bat eman...");
+				ondo.css('color','red');
+			}
+        }
+	var reset = function(){
+			$("#ondo").html("");
+			$("#emaitza").val("");
+			$("#erag").val("");
+	}
+
+    </script>
+    <body>
+
+	<div class="caja">
+        <h1>Kalkulagailua</h1>
+        <h5>Jon Diez eta Angela Escondrillas</h5>
+
+            Eragiketa:<br>
+            <input type="text" id="erag" value="">
+            <br>
+            <br>
+  
+            Espero den emaitza:<br>
+            <input type="text" id="emaitza" value="">
+            <br>
+            <br>
+			
+            <input type="button" value="Konprobatu" onClick='kalkulatu()'>
+			<input type="button" value="Reset" onClick='reset()'>
+			
+			<br><br>
+			<p id="ondo"></p>
+	</div>
+    </body>
+</html>
